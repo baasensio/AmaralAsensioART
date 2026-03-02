@@ -92,6 +92,15 @@ nav {
 	padding: 20px 30px 20px 20px;
 }
 
+.main-nav li a.shopping-cart {
+	font-size: 30px;
+	padding: 0px 10px;
+
+	i:before{
+		content:"\f07a"
+	}
+}
+
 ul.nav {
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -456,3 +465,8 @@ span.btn {
 	.main-nav ul.nav li.active { padding: 0; padding: 2% 0; }
 	.main-nav ul.nav li a:hover { padding: 2%; }
 }
+
+/* Bootstrap */
+.p-0{padding:0!important}.p-1{padding:.25rem!important}.p-2{padding:.5rem!important}.p-3{padding:1rem!important}.p-4{padding:1.5rem!important}.p-5{padding:3rem!important}
+.px-0{padding-left:0!important;padding-right:0!important}.px-1{padding-left:.25rem!important;padding-right:.25rem!important}.px-2{padding-left:.5rem!important;padding-right:.5rem!important}.px-3{padding-left:1rem!important;padding-right:1rem!important}.px-4{padding-left:1.5rem!important;padding-right:1.5rem!important}.px-5{padding-left:3rem!important;padding-right:3rem!important}
+.py-0{padding-top:0!important;padding-bottom:0!important}.py-1{padding-top:.25rem!important;padding-bottom:.25rem!important}.py-2{padding-top:.5rem!important;padding-bottom:.5rem!important}.py-3{padding-top:1rem!important;padding-bottom:1rem!important}.py-4{padding-top:1.5rem!important;padding-bottom:1.5rem!important}.py-5{padding-top:3rem!important;padding-bottom:3rem!important}
