@@ -19,13 +19,20 @@ http://www.templatemo.com/tm-413-flip-turn
 p {	margin: 0; }
 ul { padding: 0; }
 li { list-style: none; }
-a { text-decoration: none; }
+a { text-decoration: none; color: inherit; }
 
 /*  2. Universal styles
 --------------------------------------*/
 
-* {	font-family: 'Open Sans', sans-serif; }
-body { background-color: #eee; }
+* {	font-family: 'Open Sans', sans-serif; color: var(--primary-color); }
+
+:root {
+	--white-color:                  #ffffff;
+	--primary-color:				#224fa1;
+	--primary-bg-color:             var(--white-color);
+	--secondary-bg-color:           var(--primary-color);
+	--dark-color:                   #000000;
+}
 
 h1 {
 	font-size: 30px;
@@ -33,8 +40,6 @@ h1 {
 	text-shadow: 1px 1px 1px rgba(167, 221, 255, 0.5);
 	margin: 0 0 10px 0;
 }
-
-h2 { color: #909090; }
 
 h1, h2, h3 { font-weight: 300; }
 
@@ -50,19 +55,11 @@ footer p, address {	font-size: 14px; }
 
 #templatemo_timeline .time_line_paragraph h1 { font-size: 24px; }
 
-#logo a {	
-	color: #909090; 
+#logo a {
 	margin-left: 15px;
 	margin-right: 15px;
 }
 #logo, #templatemo_timeline i {	font-size: 50px; }
-
-.main-container { 
-	max-width: 1200px;
-	margin: 0 auto;	
-	background: white;
-	box-shadow: 0 0 5px rgba(107, 110, 112, 0.4); 
-}
 
 .content-container {
 	box-sizing: border-box;
@@ -73,22 +70,28 @@ footer p, address {	font-size: 14px; }
 }
 .content { padding-top: 15px; }
 
-.main-nav { border-bottom: #DDDDDD 1px solid; }
-
-.main-nav li {
-	margin-right: 2px;
-	background-color: rgba(255, 255, 255, 1);
-	box-shadow: 1px 1px 1px rgba(80, 80, 80, 0.4);
+.main-nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
-.main-nav li a { display: block; padding: 12px 24px; }
+.main-nav li {
+	position: relative; 
+	font-size: large;
+}
 
-.main-nav li.active { background-color: #A7DDFF; padding: 12px 24px; }
+.main-nav li a {
+	display: block;
+	padding: 12px 24px;
+}
 
-.main-nav li a:hover { background-color: #A7DDFF; }
+.main-nav li a:hover {
+	text-decoration: underline;
+	text-decoration-thickness: 3px;
+}
 
 nav {
-	overflow: hidden;
 	padding: 20px 30px 20px 20px;
 }
 
@@ -112,24 +115,66 @@ ul.nav {
 
 ul.nav li {	cursor: pointer; display: inline-block; }
 ul.nav li.active {	cursor: default; }
-ul.nav li, .portfolio-group .detail h3, .templatemo_form button {
+.portfolio-group .detail h3, .templatemo_form button {
 	text-transform: uppercase;
 }
 
+/* Nav Submenu – hidden by default */
+nav ul ul {
+	max-height: 0;               /* collapse */
+	overflow: hidden;
+	transition: max-height .3s ease-out;
+	z-index: 1;
+	position:absolute;                 /* removes it from the normal flow */
+	left:0;                             /* align with left edge of parent li */
+	top:100%;                           /* start right below the parent li */
+	min-width:100%;                     /* at least as wide as the parent */
+	opacity:0;                          /* invisible initially */
+	visibility:hidden;
+	transform:translateY(-10px);       /* slight slide‑down effect */
+	transition:
+		opacity .25s ease,
+		transform .25s ease,
+		visibility .25s;
+}
+
+ul.nav li ul li {
+	display: block;
+	margin-right: 0;
+}
+
+/* Show submenu on hover of its parent <li> */
+.main-nav > ul > li:hover > ul {
+	max-height: 500px;           /* large enough to show all items */
+	transition: max-height .4s ease-in;
+	opacity:1;
+	visibility:visible;
+	transform:translateY(0);
+}
+/* Sub‑item styling */
+.main-nav ul ul li {
+	border-top: 1px solid #bdc3c7;
+	font-size: 14px;
+	/* text-transform: none; */
+	text-align: start;
+	background-color: var(--primary-color);
+}
+/* Sub‑item styling */
+.main-nav ul ul li a {
+	padding-left: 4px;
+	color: var(--white-color);
+}
+
 p { line-height: 1.8em; }
-a { color: black; }
-i {	color: #909090; }
 footer {
 	margin-top: 10px;
 	padding: 15px 20px 10px 20px;
 	overflow: hidden;
-	background-color: rgba(237, 237, 237, 0.4);
 	clear: both;
 }
 footer p {	
 	float: left;
 	margin-top: 6px;
-	color: #909090;
 }
 footer i {	
 	display: inline-block;
@@ -137,12 +182,6 @@ footer i {
 }
 footer i:hover, footer i:active { color: #A7DDFF; }
 
-ul.checkmark li:before { /*http://astronautweb.co/snippet/font-awesome/*/
-	font-family: 'FontAwesome'; 
-	content: '\f058'; 
-	margin:0 5px 0 -15px; 
-	color: #929292; 
-} 
 ul.pad-left {	
 	overflow: auto;	
 	padding-left: 30px;	
