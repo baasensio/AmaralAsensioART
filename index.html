@@ -23,9 +23,9 @@ http://www.templatemo.com/tm-413-flip-turn
 				<li class="btn active p-0">
 					<a href="#">Artwork</a>
 					<ul>
-						<li><a href="#">Paintings</a></li>
-						<li><a href="#">Drawings</a></li>
-						<li><a href="#">Hand-painted fans</a></li>
+						<li id="painting">Paintings</li>
+						<li id="drawing">Drawings</li>
+						<li id="fan">Hand-painted fans</li>
 					</ul>
 				</li>
 				<li class="btn"><a href="available.html">Available</a></li>
@@ -35,45 +35,75 @@ http://www.templatemo.com/tm-413-flip-turn
 		</nav>
 		<div class="content-container">
 			<div class="portfolio-page" id="page-1">
-				<div class="portfolio-group col-6">
+				<div class="portfolio-group col-6 painting">
 					<div class="portfolio-item">
 						<img src="images/r1.png" alt="image 1">
 						<span class="detail">Legenda do quadro</span>
 					</div>
 				</div>
-				<div class="portfolio-group col-6">
+				<div class="portfolio-group col-6 drawing">
 					<div class="portfolio-item">
 						<img src="images/r2.png" alt="image 2">
 						<span class="detail">Legenda do quadro</span>
 					</div>
 				</div>
-				<div class="portfolio-group col-6">
+				<div class="portfolio-group col-6 painting">
 					<div class="portfolio-item">
 						<img src="images/r3.png" alt="image 3">
 						<span class="detail">Legenda do quadro</span>
 					</div>
 				</div>
-				<div class="portfolio-group col-6">
+				<div class="portfolio-group col-6 painting">
 					<div class="portfolio-item">
 						<img src="images/r4.png" alt="image 4">
 						<span class="detail">Legenda do quadro</span>
 					</div>
 				</div>
-				<div class="portfolio-group col-6">
+				<div class="portfolio-group col-6 painting">
 					<div class="portfolio-item">
 						<img src="images/r5.png" alt="image 5">
 						<span class="detail">Legenda do quadro</span>
 					</div>
 				</div>
-				<div class="portfolio-group col-6">
+				<div class="portfolio-group col-6 drawing">
 					<div class="portfolio-item">
 						<img src="images/r6.png" alt="image 6">
 						<span class="detail">Legenda do quadro</span>
 					</div>
 				</div>
-				<div class="portfolio-group col-6">
+				<div class="portfolio-group col-6 painting">
 					<div class="portfolio-item">
 						<img src="images/r4.png" alt="image 9">
+						<span class="detail">Legenda do quadro</span>
+					</div>
+				</div>
+				<div class="portfolio-group col-6 fan">
+					<div class="portfolio-item">
+						<img src="images/r7.png" alt="image 5">
+						<span class="detail">Legenda do quadro</span>
+					</div>
+				</div>
+				<div class="portfolio-group col-6 fan">
+					<div class="portfolio-item">
+						<img src="images/r8.png" alt="image 6">
+						<span class="detail">Legenda do quadro</span>
+					</div>
+				</div>
+				<div class="portfolio-group col-6 fan">
+					<div class="portfolio-item">
+						<img src="images/r9.png" alt="image 9">
+						<span class="detail">Legenda do quadro</span>
+					</div>
+				</div>
+				<div class="portfolio-group col-6 fan">
+					<div class="portfolio-item">
+						<img src="images/r10.png" alt="image 5">
+						<span class="detail">Legenda do quadro</span>
+					</div>
+				</div>
+				<div class="portfolio-group col-6 fan">
+					<div class="portfolio-item">
+						<img src="images/r11.png" alt="image 6">
 						<span class="detail">Legenda do quadro</span>
 					</div>
 				</div>
@@ -153,13 +183,6 @@ http://www.templatemo.com/tm-413-flip-turn
 						<span class="detail">Legenda do quadro</span>
 					</div>
 				</div>
-			</div> <!-- page 3 -->
-			<div class="pagination">
-				<ul class="nav">
-					<li class="active">1</li>
-					<li>2</li>
-					<li>3</li>
-				</ul>
 			</div>
 		</div>
 		<footer>
@@ -184,7 +207,7 @@ http://www.templatemo.com/tm-413-flip-turn
 			let images = document.querySelectorAll(".portfolio-group");
 			const alignmentValues = ['center', 'end', 'start'];
 			let prev;
-			images.forEach((img, i) => {
+			[...images].slice(0, 6).forEach((img, i) => {
 				let availableValues = alignmentValues.length;
 				if (i%2 & prev == "end") {
 					availableValues = 2;
@@ -193,9 +216,12 @@ http://www.templatemo.com/tm-413-flip-turn
 				img.style.alignItems = randomAlignment;
 				prev = randomAlignment;
 			});
+			[...images].slice(6).forEach((img) => {
+				img.classList.add("d-none");
+			});
 		});
 		$(function () {
-			$('.pagination li').click(changePage);
+			$('.main-nav ul ul li').click(changePage);
 			$('.portfolio-item img').click(showLegend);
 
 		});

@@ -1,12 +1,22 @@
-/*  Pagination */
+/* Pagination */
 function changePage(event) {
-  
-  var pageNo = $(this).html();
 
-  $('.portfolio-page').hide();
-  $('#page-' + pageNo).fadeIn();
-  $('.pagination li').removeClass('active');
-  $(this).addClass('active');
+  let page = this.id;
+  let images = document.querySelectorAll(`.portfolio-group`);
+
+  let to_hide = [...images].filter(el => el.matches(`:not(.${page})`));
+  to_hide = [...to_hide].filter(el => el.matches(":not(.d-none)"));
+
+  let to_show = [...images].filter(el => el.matches(`.${page}`));
+  to_show = [...to_show].filter(el => el.matches(".d-none"));
+
+  to_hide.forEach((img) => {
+    img.classList.add("d-none");
+  });
+
+  to_show.forEach((img) => {
+    img.classList.remove("d-none");
+  });
 }
 
 /*  Show img legend */
