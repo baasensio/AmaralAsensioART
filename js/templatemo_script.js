@@ -9,6 +9,17 @@ function changePage(event) {
   $(this).addClass('active');
 }
 
+/*  Show img legend */
+function showLegend(event) {
+
+  var legend = this.nextElementSibling;
+  legend.style.visibility = 'visible';
+  
+  this.addEventListener("mouseout", ()=>{
+    legend.style.visibility = '';
+  })
+}
+
 /*  Google Map */
 function loadScript() {
   var script = document.createElement('script');
