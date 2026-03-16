@@ -15,6 +15,25 @@ http://www.templatemo.com/tm-413-flip-turn
 	<link rel="stylesheet" type="text/css" href="css/templatemo_style.css">
 </head>
 <body>
+	<div class="image-overlay d-none">
+		<div class="overlay-content">
+			<div class="close-button-section">
+				<svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<polygon stroke-linecap="square" transform="translate(5513e-6 0.015687)" points="0.050182 0.389558 0.458421 -0.015687 7.995984 7.57757 15.589241 0.040007 15.994487 0.448247 8.401229 7.98581 15.938792 15.579067 15.530552 15.984313 7.99299 8.391055 0.399732 15.928618 -5513e-6 15.520378 7.587744 7.982815" />
+				</svg>
+			</div>
+			<div class="image-section">
+				<img src="" alt="" class="expanded-image">
+				<div class="price-detail"><p>Price</p><p>35€</p></div>
+			</div>
+			<div class="image-caption">
+				<p>Legenda da imagem. 2025.</p>
+			</div>
+			<div class="purchase-buttons-section">
+				<button>Add to cart</button><button>Buy now</button>
+			</div>
+		</div>
+	</div>
 	<div class="main-container">
 		<nav class="main-nav">
 			<div id="logo" class="left"><a href="index.html">Amaral Asensio</a></div>
@@ -36,25 +55,23 @@ http://www.templatemo.com/tm-413-flip-turn
 			<header>
 				<h1 class="center-text">Available</h1>
 			</header>
-			<div class="templatemo-detail content">
-				
-				<div class="about-detail">
-                    <img src="images/3-small.jpg" alt="image 3" class="left shadow">
-					<p class="justify">2023. Sem título. Tinta de amoras sobre papel.</p>
-					</ul>
-                    
-                    <img src="images/6-small.jpg" alt="image 6" class="left shadow">
-					<p class="justify">2019. Sem título. Carvão sobre papel.</p>
-				</div>	
-                
-			</div>
-		</div> <!-- /.content-container -->		
+			<div class="portfolio-page"></div>
+		</div>
 		<footer>
 			<p>Copyright &copy; 2026 Amaral Asensio</p>
 			<div class="social right">
 				<a href="#"><i class="fa fa-instagram"></i></a>
 			</div>
 		</footer>
-	</div>	
+	</div>
+	<script type="text/javascript" src="js/templatemo_script.js"></script>
+	<script type="text/javascript" src="js/arte.js"></script>
+	<script type="text/javascript" src="js/fillPage.js"></script>
+	<script type="text/javascript">
+
+		let isImageAvailable = (image, index) => image.available;
+
+		fillPage(arte, isImageAvailable);
+	</script>
 </body>
 </html>

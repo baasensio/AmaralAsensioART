@@ -19,15 +19,15 @@ function changePage(event) {
   });
 }
 
-/*  Show img legend */
-function showLegend(event) {
+function expandImage(event) {
 
-  var legend = this.nextElementSibling;
-  legend.style.visibility = 'visible';
-  
-  this.addEventListener("mouseout", ()=>{
-    legend.style.visibility = '';
-  })
+  let imgSrc = this.querySelector("img").getAttribute("src");
+
+  let imgOverlay = document.querySelector(".image-overlay");
+  let expImg = imgOverlay.querySelector(".expanded-image");
+  expImg.src = imgSrc;
+
+  imgOverlay.classList.remove("d-none");
 }
 
 /*  Google Map */
