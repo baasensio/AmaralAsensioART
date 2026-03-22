@@ -10,6 +10,12 @@ let fillPage = (arte, condition) => {
             portfolioGroup.className = `portfolio-group col-6 ${image.type}`;
 
             const portfolioItem = document.createElement('div');
+            portfolioItem.dataset.filePath = image.filePath;
+            portfolioItem.dataset.caption = image.caption;
+            portfolioItem.dataset.price = image.price;
+            portfolioItem.dataset.year = image.year;
+            portfolioItem.dataset.type = image.type;
+            portfolioItem.dataset.available = image.available;
             portfolioItem.className = 'portfolio-item';
 
             const img = document.createElement('img');
@@ -38,13 +44,6 @@ let fillPage = (arte, condition) => {
             else portfolioGroup.classList.add("d-none"); // Hide image
 
             page.appendChild(portfolioGroup);
-        });
-
-        // Add expand image close action
-        const closeBtn = document.querySelector('.close-button-section>svg');
-        closeBtn.addEventListener("click", () => {
-            let imgOverlay = document.querySelector(".image-overlay");
-            imgOverlay.classList.add("d-none");
         });
     });
 }

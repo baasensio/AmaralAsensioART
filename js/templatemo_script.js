@@ -21,11 +21,14 @@ function changePage(event) {
 
 function expandImage(event) {
 
-  let imgSrc = this.querySelector("img").getAttribute("src");
-
   let imgOverlay = document.querySelector(".image-overlay");
+  if (!imgOverlay) return;
   let expImg = imgOverlay.querySelector(".expanded-image");
-  expImg.src = imgSrc;
+  expImg.src = this.dataset.filePath;
+  let priceTag = imgOverlay.querySelector("#price-tag");
+  priceTag.innerHTML = `${this.dataset.price}€`;
+  let imageCaption = imgOverlay.querySelector(".image-caption>p");
+  imageCaption.innerHTML = `${this.dataset.caption}. ${this.dataset.year}`;
 
   imgOverlay.classList.remove("d-none");
 }

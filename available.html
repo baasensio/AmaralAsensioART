@@ -10,7 +10,7 @@ http://www.templatemo.com/tm-413-flip-turn
 	<meta name="description" content="" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<link href="https://googledonts.private.coffee/css?family=Source+Serif+4:400,300,700" rel="stylesheet">
 	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="css/templatemo_style.css">
 </head>
@@ -24,7 +24,7 @@ http://www.templatemo.com/tm-413-flip-turn
 			</div>
 			<div class="image-section">
 				<img src="" alt="" class="expanded-image">
-				<div class="price-detail"><p>Price</p><p>35€</p></div>
+				<div class="price-detail"><p>Price</p><p id="price-tag">35€</p></div>
 			</div>
 			<div class="image-caption">
 				<p>Legenda da imagem. 2025.</p>
@@ -38,7 +38,7 @@ http://www.templatemo.com/tm-413-flip-turn
 		<nav class="main-nav">
 			<div id="logo" class="left"><a href="index.html">Amaral Asensio</a></div>
 			<ul class="nav right center-text">
-				<li class="btn">
+				<li>
 					<a href="index.html">Artwork</a>
 					<ul>
 						<li id="painting">Paintings</li>
@@ -46,22 +46,31 @@ http://www.templatemo.com/tm-413-flip-turn
 						<li id="fan">Hand-painted fans</li>
 					</ul>
 				</li>
-				<li class="btn"><a href="#">Available</a></li>
-				<li class="btn"><a href="about.html">About</a></li>
-				<li class="btn"><a href="shop.html" class="shopping-cart"><i class="fa"></i></a></li>
+				<li><a href="#">Available</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="shop.html" class="shopping-cart"><i class="fa"></i></a></li>
 			</ul>
 		</nav>
 		<div class="content-container">
-			<header>
-				<h1 class="center-text">Available</h1>
-			</header>
 			<div class="portfolio-page"></div>
 		</div>
-		<footer>
-			<p>Copyright &copy; 2026 Amaral Asensio</p>
-			<div class="social right">
-				<a href="#"><i class="fa fa-instagram"></i></a>
+		<footer id="#footer">
+			<div class="footer-nav">
+				<ul class="nav center-text">
+					<li><a href="#footer">Artwork</a></li>
+					<li><a href="available.html">Available</a></li>
+					<li><a href="about.html">About</a></li>
+				</ul>
 			</div>
+			<div class="footer-contact">
+				<h3>CONTACT</h3>
+				<p>amaralasensio.info@gmail.com</p>
+			</div>
+			<div class="footer-socials">
+				<h3>FOLLOW</h3>
+				<a>Instagram</a>
+			</div>
+			<p> &copy; 2026 | BEATRIZ AMARAL ASENSIO</p>
 		</footer>
 	</div>
 	<script type="text/javascript" src="js/templatemo_script.js"></script>
@@ -72,6 +81,14 @@ http://www.templatemo.com/tm-413-flip-turn
 		let isImageAvailable = (image, index) => image.available;
 
 		fillPage(arte, isImageAvailable);
+
+		document.addEventListener('DOMContentLoaded', () => {
+			const closeBtn = document.querySelector('.close-button-section>svg');
+			closeBtn.addEventListener("click", () => {
+				let imgOverlay = document.querySelector(".image-overlay");
+				imgOverlay.classList.add("d-none");
+			});
+		});
 	</script>
 </body>
 </html>

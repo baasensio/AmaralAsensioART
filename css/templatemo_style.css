@@ -24,14 +24,17 @@ a { text-decoration: none; color: inherit; }
 /*  2. Universal styles
 --------------------------------------*/
 
-* {	font-family: 'Open Sans', sans-serif; color: var(--primary-color); }
+* {	font-family: 'Source Serif 4', sans-serif; color: var(--primary-color); }
 
 :root {
-	--white-color:                  #ffffff;
+	--white-color:                  #fefbf4;
 	--primary-color:				#224fa1;
 	--primary-bg-color:             var(--white-color);
 	--secondary-bg-color:           var(--primary-color);
 	--dark-color:                   #000000;
+
+	background-color: var(--white-color);
+	font-size: 18px;
 }
 
 h1 {
@@ -41,15 +44,7 @@ h1 {
 	margin: 0 0 10px 0;
 }
 
-h1, h2, h3 { font-weight: 300; }
-
-h2, h3, footer i { font-size: 18px; }
-
-p, form, ul { font-size: 14px; }
-
-.subtitle { font-weight: bold; color: #909090; }
-
-footer p, address {	font-size: 14px; }
+address {	font-size: 14px; }
 
 #templatemo_timeline .time_line_paragraph h1 { font-size: 24px; }
 
@@ -74,7 +69,6 @@ footer p, address {	font-size: 14px; }
 
 .main-nav li {
 	position: relative;
-	font-size: large;
 }
 
 .main-nav li a {
@@ -107,10 +101,12 @@ ul.nav {
 	-webkit-justify-content: center;
 	-ms-flex-pack: center;
 	justify-content: center;
+	font-size: 22px;
 }
 
-ul.nav li {	cursor: pointer; display: inline-block; }
-ul.nav li.active {	cursor: default; }
+ul.nav li {
+	cursor: pointer;
+}
 .templatemo_form button {
 	text-transform: uppercase;
 }
@@ -119,7 +115,6 @@ ul.nav li.active {	cursor: default; }
 nav ul ul {
 	max-height: 0;               /* collapse */
 	overflow: hidden;
-	transition: max-height .3s ease-out;
 	z-index: 1;
 	position:absolute;                 /* removes it from the normal flow */
 	left:0;                             /* align with left edge of parent li */
@@ -127,11 +122,6 @@ nav ul ul {
 	min-width:100%;                     /* at least as wide as the parent */
 	opacity:0;                          /* invisible initially */
 	visibility:hidden;
-	transform:translateY(-10px);       /* slight slide‑down effect */
-	transition:
-		opacity .25s ease,
-		transform .25s ease,
-		visibility .25s;
 }
 
 ul.nav li ul li {
@@ -139,22 +129,20 @@ ul.nav li ul li {
 	margin-right: 0;
     width: max-content;
 	min-width: 100%;
-	padding: 12px 24px 12px 4px;
+	padding: 4px 5px;
     color: var(--white-color);
+	font-weight: 100;
 }
 
 /* Show submenu on hover of its parent <li> */
 .main-nav > ul > li:hover > ul {
 	max-height: 500px;
-	transition: max-height .4s ease-in;
 	opacity:1;
 	visibility:visible;
-	transform:translateY(0);
 }
 /* Sub‑item styling */
 .main-nav ul ul li {
-	border-top: 1px solid #bdc3c7;
-	font-size: 14px;
+	font-size: 18px;
 	text-align: start;
 	background-color: var(--primary-color);
 }
@@ -171,14 +159,30 @@ ul.nav li ul li {
 
 p { line-height: 1.8em; }
 footer {
-	margin-top: 10px;
-	padding: 15px 20px 10px 20px;
-	overflow: hidden;
-	clear: both;
-}
-footer p {
-	float: left;
-	margin-top: 6px;
+	display: flex;
+	flex-direction: column;	
+	padding: 15px 50px;
+	text-align: center;
+
+	
+	ul.nav {
+		-webkit-justify-content: space-between;
+		-ms-flex-pack: space-between;
+		justify-content: space-between;
+	}
+	a {
+		cursor: pointer;
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+	}
+	h3 {
+		margin-bottom: 0;
+	}
+
+	> *:last-child{
+		margin-top: 20px;
+		font-weight: 100;
+	}
 }
 footer i {
 	display: inline-block;
@@ -219,26 +223,13 @@ p.justify { text-align: justify; }
 	cursor: pointer;
 }
 .portfolio-group .detail {
+	font-size: 16px;
 	visibility: hidden;
 }
 .portfolio-item {
 	height:100%;
 	cursor: auto;
 }
-.pagination { width: 100%; }
-.pagination li {
-	width: 30px;
-	height: 30px;
-	line-height: 30px;
-	background-color: white;
-	-webkit-box-shadow: 1px 1px 1px rgba(51,51,51,0.4);
-	-ms-box-shadow: 1px 1px 1px rgba(51,51,51,0.4);
-	box-shadow: 1px 1px 1px rgba(51,51,51,0.4);
-	margin-right: 10px;
-	border: 1px solid rgba(44, 44, 44, 0.1);
-}
-.pagination li:last-child {	margin-right: 0; }
-.pagination li.active, .pagination li:hover { background-color: #A7DDFF; }
 
 /*  4. CSS3 flip
 	http://stackoverflow.com/questions/13474210/css3-3d-flip-animation-ie10-transform-origin-preserve-3d-workaround
@@ -417,15 +408,6 @@ form {
 address {
 	margin: 15px 0px;
 }
-span.btn {
-	display: block;
-	font-size: 12px;
-	line-height: 30px;
-	margin: 0 auto;
-	text-transform: uppercase;
-	border: none;
-	cursor: pointer;
-}
 .templatemo_form button {
   width: 160px;
   line-height: 34px;
@@ -443,7 +425,7 @@ span.btn {
   	height: 130px;
 }
 .templatemo_form input, .templatemo_form textarea {
-	font-family: 'Open Sans', sans-serif; /* for Firefox */
+	font-family: 'Source Serif 4', sans-serif; /* for Firefox */
 	font-size: 14px;
 	padding: 6px 2%;
 	width: 95%;

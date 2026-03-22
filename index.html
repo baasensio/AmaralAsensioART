@@ -5,9 +5,9 @@
 	<meta name="description" content="" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<link href="https://googledonts.private.coffee/css?family=Source+Serif+4:400,300,700" rel="stylesheet">
+	<!-- shopping cart -->
 	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="css/magnific-popup.css" rel="stylesheet">
 	<link href="css/templatemo_style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -15,7 +15,7 @@
 		<nav class="main-nav">
 			<div id="logo" class="left"><a href="#">Amaral Asensio</a></div>
 			<ul class="nav right center-text">
-				<li class="btn active p-0">
+				<li class="active p-0">
 					<a href="#">Artwork</a>
 					<ul>
 						<li id="painting">Paintings</li>
@@ -23,30 +23,33 @@
 						<li id="fan">Hand-painted fans</li>
 					</ul>
 				</li>
-				<li class="btn"><a href="available.html">Available</a></li>
-				<li class="btn"><a href="about.html">About</a></li>
-				<li class="btn"><a href="shop.html" class="shopping-cart"><i class="fa"></i></a></li>
+				<li><a href="available.html">Available</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="shop.html" class="shopping-cart"><i class="fa"></i></a></li>
 			</ul>
 		</nav>
 		<div class="content-container">
 			<div class="portfolio-page"></div>
 		</div>
-		<footer>
-			<p> &copy; 2026 Amaral Asensio</p>
-			<div class="social right">
-				<a href="#"><i class="fa fa-facebook"></i></a>
-				<a href="#"><i class="fa fa-twitter"></i></a>
-				<a href="#"><i class="fa fa-google-plus"></i></a>
-				<a href="#"><i class="fa fa-dribbble"></i></a>
-				<a href="#"><i class="fa fa-instagram"></i></a>
-				<a href="#"><i class="fa fa-linkedin"></i></a>
+		<footer id="#footer">
+			<div class="footer-nav">
+				<ul class="nav center-text">
+					<li><a href="#footer">Artwork</a></li>
+					<li><a href="available.html">Available</a></li>
+					<li><a href="about.html">About</a></li>
+				</ul>
 			</div>
+			<div class="footer-contact">
+				<h3>CONTACT</h3>
+				<p>amaralasensio.info@gmail.com</p>
+			</div>
+			<div class="footer-socials">
+				<h3>FOLLOW</h3>
+				<a>Instagram</a>
+			</div>
+			<p> &copy; 2026 | BEATRIZ AMARAL ASENSIO</p>
 		</footer>
 	</div>
-	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-	<script type="text/javascript" src="js/modernizr.2.5.3.min.js"></script>
-	<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
 	<script type="text/javascript" src="js/templatemo_script.js"></script>
 	<script type="text/javascript" src="js/arte.js"></script>
 	<script type="text/javascript" src="js/fillPage.js"></script>
@@ -55,9 +58,11 @@
 		let isImageInFirst6 = (image, index) => index < 6;
 
 		fillPage(arte, isImageInFirst6);
-		$(function () {
-			$('.main-nav ul ul li').click(changePage);
 
+		document.addEventListener('DOMContentLoaded', () => {
+			document.querySelectorAll('.main-nav ul ul li').forEach((item, i) => {
+				item.addEventListener("click", changePage);
+			});
 		});
 	</script>
 </body>
