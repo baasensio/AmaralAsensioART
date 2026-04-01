@@ -58,12 +58,6 @@
 		let isImageInFirst6 = (image, index) => index < 6;
 
 		fillPage(arte, isImageInFirst6);
-
-		document.addEventListener('DOMContentLoaded', () => {
-			document.querySelectorAll('.main-nav ul ul li').forEach((item, i) => {
-				item.addEventListener("click", changePage);
-			});
-		});
 	</script>
 </body>
 </html>

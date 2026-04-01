@@ -1,9 +1,14 @@
 let fillPage = (arte, condition) => {
     document.addEventListener('DOMContentLoaded', () => {
+        const pendingTarget = sessionStorage.getItem('pendingSubmenuTarget');
+        if (pendingTarget) sessionStorage.removeItem('pendingSubmenuTarget');
+        const isArtWork = window.location.pathname.includes("/index");
+
 
         let page = document.querySelector(".portfolio-page");
         const alignmentValues = ['center', 'end', 'start'];
         let previousAlignment;
+        let visibleImages = 0;
 
         arte.images.forEach((image, i) => {
             const portfolioGroup = document.createElement('div');
@@ -32,18 +37,23 @@ let fillPage = (arte, condition) => {
             portfolioGroup.appendChild(portfolioItem);
 
             // Align images to display avoiding 2 centered
-            if (condition(image, i)) {
+            if (condition(image, visibleImages) & (!isArtWork | !pendingTarget | pendingTarget === image.type)) {
                 let availableValues = alignmentValues.length;
-                if (i%2 & previousAlignment == "end") {
+                if (visibleImages%2 & previousAlignment == "end") {
                     availableValues = 2;
                 }
                 const randomAlignment = alignmentValues[Math.floor(Math.random() * availableValues)];
                 portfolioGroup.style.alignItems = randomAlignment;
                 previousAlignment = randomAlignment;
+                visibleImages += 1;
             }
             else portfolioGroup.classList.add("d-none"); // Hide image
 
             page.appendChild(portfolioGroup);
+        });
+
+        document.querySelectorAll('.main-nav ul ul li').forEach((item, i) => {
+            item.addEventListener("click", changePage);
         });
     });
 }

@@ -1,5 +1,9 @@
 /* Pagination */
 function changePage(event) {
+  sessionStorage.setItem('pendingSubmenuTarget', this.id);
+  const isArtWork = window.location.pathname.includes("/index");
+
+  if (!isArtWork) window.location.href = "index.html";
 
   let page = this.id;
   let images = document.querySelectorAll(`.portfolio-group`);
